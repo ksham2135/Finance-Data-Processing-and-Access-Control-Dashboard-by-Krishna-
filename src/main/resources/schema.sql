@@ -1,16 +1,12 @@
 -- ============================================================
--- Finance Dashboard — MySQL Schema
+-- Finance Dashboard — reference DDL (MySQL-style)
 -- ============================================================
--- Run this ONCE to create the database and user.
--- Hibernate (ddl-auto=update) will manage table creation/updates.
+-- With H2, Hibernate (ddl-auto=update) manages schema; this file is not
+-- applied when spring.sql.init.mode=never. Kept for documentation only.
 -- ============================================================
 
--- Create database
-CREATE DATABASE IF NOT EXISTS finance_dashboard
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
-
-USE finance_dashboard;
+-- MySQL only (not used with H2):
+-- CREATE DATABASE IF NOT EXISTS finance_dashboard ...
 
 -- ============================================================
 -- Table: users

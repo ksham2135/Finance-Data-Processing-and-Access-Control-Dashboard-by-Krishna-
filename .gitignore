@@ -19,3 +19,6 @@ Thumbs.db
 
 # Env
 .env
+
+# H2 file database (local persistence)
+data/

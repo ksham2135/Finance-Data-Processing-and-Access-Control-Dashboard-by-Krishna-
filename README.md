@@ -21,7 +21,7 @@ A production-style backend system built using Java Spring Boot that manages fina
 - Spring Web
 - Spring Data JPA (Hibernate)
 - Spring Security (JWT)
-- MySQL
+- H2 (embedded file database)
 - Lombok
 - Swagger (OpenAPI)
 
@@ -94,14 +94,20 @@ Use it to explore and test all endpoints interactively.
 
 ---
 
-## 🗄️ Database Setup (MySQL)
+## 🗄️ Database (H2)
 
-Update `application.properties`:
+The app uses an embedded **H2** database with data stored under `./data/` (created on first run). No separate database server is required.
+
+Optional: set a password for the default `sa` user:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/finance_dashboard?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
-spring.datasource.username=root
-spring.datasource.password=${DB_PASSWORD}
+# In application.properties (or override via environment)
+spring.datasource.password=${H2_PASSWORD:}
+```
+
+```bash
+# Windows PowerShell
+$env:H2_PASSWORD="your_secure_password"
 ```
 
 ---
@@ -120,14 +126,14 @@ git clone https://github.com/ksham2135/Finance-Data-Processing-and-Access-Contro
 cd Finance-Data-Processing-and-Access-Control-Dashboard
 ```
 
-3. Set environment variable:
+3. (Optional) Set H2 password for user `sa`:
 
 ```bash
 # Linux/macOS
-export DB_PASSWORD=your_mysql_password
+export H2_PASSWORD=your_secure_password
 
 # Windows PowerShell
-$env:DB_PASSWORD="your_mysql_password"
+$env:H2_PASSWORD="your_secure_password"
 ```
 
 4. Run the application:
@@ -160,7 +166,7 @@ Seeded sample data includes:
 
 - Users must be authenticated to access protected endpoints
 - Only admins can manage users and create/update/delete financial records
-- Data is stored in local MySQL
+- Data is stored in a local H2 file database under `./data/`
 - JWT is used for stateless authentication
 
 ---
