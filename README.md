@@ -53,7 +53,7 @@ Authorization: Bearer <your_token>
 
 Access Swagger UI here:
 
-👉 http://localhost:8080/api/swagger-ui.html
+👉 [http://localhost:8080/api/swagger-ui.html](https://finance-data-processing-and-access-c7az.onrender.com/api/swagger-ui/index.html)
 
 Use it to explore and test all endpoints interactively.
 
